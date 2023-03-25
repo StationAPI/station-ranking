@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -23,7 +24,11 @@ func main() {
 	r.Use(middleware.RealIP)
 
 	r.Get("/ranking/new", func(w http.ResponseWriter, r *http.Request) {
-		routes.New(w, r, db)
+    err := routes.New(w, r, db)
+
+    if err != nil {
+      fmt.Println(err)
+    }
 	})
 
 	r.Get("/ranking/recently-bumped", func(w http.ResponseWriter, r *http.Request) {
