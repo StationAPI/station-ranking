@@ -8,8 +8,9 @@ type Website struct {
 	IconURL     string   `json:"icon_url"`
 	Description string   `json:"description"`
 	Tags        []string `json:"tags"`
-	Created     int64
-	Bumps       int
+  LastBumped  int `json:"last_bumped"`
+  Created     int64 `json:"created"`
+  Bumps       int `json:"bumps"`
 }
 
 func ListWebsite(db gorm.DB) []Website {
