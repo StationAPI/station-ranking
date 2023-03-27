@@ -11,6 +11,8 @@ type Website struct {
   LastBumped  int `json:"last_bumped"`
   Created     int64 `json:"created"`
   Bumps       int `json:"bumps"`
+  Upvotes int `json:"upvotes"`
+  UpvotesToday int `json:"upvotes_today"`
 }
 
 func ListWebsite(db gorm.DB) []Website {

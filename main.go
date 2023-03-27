@@ -32,10 +32,18 @@ func main() {
 	})
 
 	r.Get("/ranking/recently-bumped", func(w http.ResponseWriter, r *http.Request) {
-		routes.RecentlyBumped(w, r, db)
+    err := routes.LastBumped(w, r, db)
+
+    if err != nil {
+      fmt.Println(err)
+    }
 	})
 
 	r.Get("/ranking/hot", func(w http.ResponseWriter, r *http.Request) {
-		routes.Hot(w, r, db)
+    err := routes.Hot(w, r, db)
+
+    if err != nil {
+      fmt.Println(err)
+    }
 	})
 }
